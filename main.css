@@ -21,6 +21,60 @@ a {
     display: block;
     clear: both;    
 }
+.siteWelcome{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: grey;
+    z-index: 1;
+}
+.siteWelcome.active{
+    display: block;
+}
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.loading::before,
+.loading::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: loadingProgress 1.5s infinite;
+}
+
+.loading::after {
+    animation-delay: 0.75s;
+}
+
+@keyframes loadingProgress {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
+
+    100% {
+        height: 100px;
+        width: 100px;
+        opacity: 0;
+    }
+}
 
 .topNavBar {
     padding: 20px 0;

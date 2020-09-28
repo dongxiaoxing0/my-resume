@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的个人简历</title>
-    <link rel="stylesheet" href="./a.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="loading.css">
     <script src="//at.alicdn.com/t/font_1233691_uxb0u0au1gj.js"></script>
     <style type="text/css">
         .icon {
@@ -19,6 +20,9 @@
 </head>
 
 <body>
+    <div id="siteWelcome"  class="siteWelcome active">
+        <div class="loading"></div>
+    </div>
     <div class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a class="logo" href="" alt="logo">
@@ -144,13 +148,13 @@
             </div>
         </nav>
         <script>
-            portfolioAll.onclick= function(){
+            portfolioAll.onclick = function () {
                 portfolioBar.className = 'bar state-1';
             }
-            portfolioFramework.onclick= function(){
+            portfolioFramework.onclick = function () {
                 portfolioBar.className = 'bar state-2';
             }
-            portfolioVallina.onclick= function(){
+            portfolioVallina.onclick = function () {
                 portfolioBar.className = 'bar state-3';
             }
         </script>
@@ -167,6 +171,11 @@
             </div>
         </div>
     </section>
+    <script>
+        setTimeout(function(){
+            siteWelcome.classList.remove('active');
+        },2000);
+    </script>
 
 </body>
 
