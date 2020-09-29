@@ -31,10 +31,10 @@
             </a>
             <nav>
                 <ul class="clearfix">
-                    <li><a href="#">关于</a></li>
-                    <li><a href="#">技能</a></li>
+                    <li><a href="#siteAbout">关于</a></li>
+                    <li><a href="#skills">技能</a></li>
                     <li>
-                        <a href="#">作品</a>
+                        <a href="#portfolio">作品</a>
                         <ul>
                             <li>作品1</li>
                             <li>作品2</li>
@@ -62,7 +62,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div class="userCard">
+        <div id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" alt="头像">
@@ -108,7 +108,7 @@
             这里是我的自我介绍，这里是我的自我介绍。
         </p>
     </main>
-    <section class="skills">
+    <section id="skills" class="skills">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -149,7 +149,7 @@
             </li>
         </ol>
     </section>
-    <section class="portfolio">
+    <section id="portfolio" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -206,7 +206,16 @@
                 e.currentTarget.classList.remove('active')
             }
         }
-
+        let aTags = document.querySelectorAll('.topNavBar nav > ul > li > a');
+        for(let i = 0; i < aTags.length; i++){
+            aTags[i].onclick = function (e) {
+                e.preventDefault();
+                let href = e.currentTarget.getAttribute('href');
+                let targetElement = document.querySelector(href);
+                let offset = targetElement.offsetTop;
+                window.scrollTo(0,offset-70);
+            }
+        }
     </script>
 
 </body>

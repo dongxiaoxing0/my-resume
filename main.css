@@ -84,16 +84,19 @@ a {
     display: inline-block;
     position: relative;
 }
-.topNavBar nav > ul > li.active > a::after {
+.topNavBar nav > ul > li > a::after {
     content: '';
     display: block;
     height: 3px;
-    background-color: #e06567;  
+    background-color: transparent;  
     margin-top: 3px;
     border-radius: 3px;
     position: relative;
     top: 100%;
     left: 0;
+}
+.topNavBar nav > ul > li.active > a::after {
+    background-color: #e06567;  
     animation: slide 1s;
 }
 @keyframes slide {
