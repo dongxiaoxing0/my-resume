@@ -82,19 +82,29 @@ a {
     padding-top:5px;
     padding-bottom: 5px;
     display: inline-block;
+    position: relative;
 }
-.topNavBar nav > ul > li > a::after {
+.topNavBar nav > ul > li.active > a::after {
     content: '';
     display: block;
     height: 3px;
-    background-color: transparent;
-    width: 100%;
+    background-color: #e06567;  
     margin-top: 3px;
     border-radius: 3px;
+    position: relative;
+    top: 100%;
+    left: 0;
+    animation: slide 1s;
 }
-.topNavBar nav > ul > li.active > a::after {
-    background-color: #e06567;  
+@keyframes slide {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
 }
+
 .topNavBar nav > ul > li > ul {
     display: none;
     position: absolute;
