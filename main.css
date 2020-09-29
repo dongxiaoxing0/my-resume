@@ -35,47 +35,6 @@ a {
     display: block;
 }
 
-.loading {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
-.loading::before,
-.loading::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    animation: loadingProgress 1.5s infinite;
-}
-
-.loading::after {
-    animation-delay: 0.75s;
-}
-
-@keyframes loadingProgress {
-    0% {
-        height: 0;
-        width: 0;
-        opacity: 1;
-    }
-
-    100% {
-        height: 100px;
-        width: 100px;
-        opacity: 0;
-    }
-}
-
 .topNavBar {
     padding: 20px 0;
     position: fixed;
@@ -101,7 +60,7 @@ a {
 }
 .topNavBar nav {
     float: right;
-    padding-top: 7px;
+    padding-top: 12px;
 }
 .topNavBar nav > ul {
     list-style: none;
@@ -113,20 +72,52 @@ a {
     float: left;
     margin-left: 17px;
     margin-right: 17px;
+    position: relative;
 }
 
 .topNavBar nav > ul > li > a {
     font-size: 12px;
     font-weight: bold;
     color: inherit;
-    border-bottom: 3px solid transparent;
-    border-top: 3px solid transparent;
-    padding-top: 5px;
+    padding-top:5px;
     padding-bottom: 5px;
     display: inline-block;
 }
-.topNavBar nav > ul > li > a:hover {
-    border-bottom: 3px solid #e06567;
+.topNavBar nav > ul > li > a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: transparent;
+    width: 100%;
+    margin-top: 3px;
+    border-radius: 3px;
+}
+.topNavBar nav > ul > li.active > a::after {
+    background-color: #e06567;  
+}
+.topNavBar nav > ul > li > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    white-space: nowrap;
+    background-color:white;
+    box-shadow: 0 0 10px 0 rgb(0,0,0,0.2);
+    font-size: 12px;
+    padding: 6px;
+    line-height: 1.5;
+}
+.topNavBar nav > ul > li.active > ul {
+    display: block;
+    animation: menuSlide 0.5s linear;
+}
+@keyframes menuSlide{
+    0% {
+        margin-right: 100%;
+    }
+    100% {
+        margin-right: 0;
+    }
 }
 .topNavBar .logo {
     font-size: 24px;
