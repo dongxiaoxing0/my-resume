@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的个人简历</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="loading.css">
+    <!-- <link rel="stylesheet" href="loading.css"> -->
     <script src="//at.alicdn.com/t/font_1233691_uxb0u0au1gj.js"></script>
     <style type="text/css">
         .icon {
@@ -20,9 +20,9 @@
 </head>
 
 <body>
-    <div id="siteWelcome" class="siteWelcome active">
+    <!-- <div id="siteWelcome" class="siteWelcome active">
         <div class="loading"></div>
-    </div>
+    </div> -->
     <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a class="logo" href="" alt="logo">
@@ -62,7 +62,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="siteAbout" class="userCard">
+        <div location id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" alt="头像">
@@ -108,7 +108,7 @@
             这里是我的自我介绍，这里是我的自我介绍。
         </p>
     </main>
-    <section id="skills" class="skills">
+    <section location id="skills" class="skills">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -149,7 +149,7 @@
             </li>
         </ol>
     </section>
-    <section id="portfolio" class="portfolio">
+    <section location id="portfolio" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -191,12 +191,15 @@
             siteWelcome.classList.remove('active');
         }, 2000);
 
+        slideUp()
+
         window.onscroll = function () {
             if (window.scrollY == 0) {
                 topNavBar.classList.remove('sticky');
             } else {
                 topNavBar.classList.add('sticky');
             }
+            slideUp()
         }
         let li = document.querySelectorAll('.topNavBar nav > ul > li');
         for (let i = 0; i < li.length - 1; i++) {
@@ -217,22 +220,43 @@
                 let currentTop = window.scrollY;
                 let s = Math.abs(currentTop - top);
                 let t = (s / 100) * 300;
-                if(t > 500){t = 500}
+                if (t > 500) { t = 500 }
                 function animate(time) {
                     requestAnimationFrame(animate)
                     TWEEN.update(time)
                 }
                 requestAnimationFrame(animate)
 
-                const coords = { y: currentTop } 
-                const tween = new TWEEN.Tween(coords) 
-                    .to({ y: top - 70 }, 1000) 
-                    .easing(TWEEN.Easing.Quadratic.InOut) 
+                const coords = { y: currentTop }
+                const tween = new TWEEN.Tween(coords)
+                    .to({ y: top - 70 }, 1000)
+                    .easing(TWEEN.Easing.Quadratic.InOut)
                     .onUpdate(() => {
-                        window.scrollTo(0,coords.y)
+                        window.scrollTo(0, coords.y)
                     })
                     .start()
             }
+        }
+
+        function slideUp() {
+            let locationTags = document.querySelectorAll('[location]')
+            let minIndex = 0
+            for (let i = 1; i < locationTags.length; i++) {
+                if (Math.abs(locationTags[i].offsetTop - window.scrollY) < Math.abs(locationTags[minIndex].offsetTop - window.scrollY)) {
+                    minIndex = i
+                }
+            }
+            let id = locationTags[minIndex].id
+            let li = document.querySelector('[href="#' + id + '"]').parentNode
+            let liTags = li.parentNode.children
+            for (let i = 0; i < liTags.length; i++) {
+                liTags[i].classList.remove('highlight')
+            }
+            li.classList.add('highlight')
+            // for(let i = 0; i < locationTags.length; i++){
+            //     locationTags[i].classList.remove('active')
+            // }
+            locationTags[minIndex].classList.add('active')
         }
     </script>
 

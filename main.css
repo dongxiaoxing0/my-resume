@@ -99,6 +99,10 @@ a {
     background-color: #e06567;  
     animation: slide 1s;
 }
+.topNavBar nav > ul > li.highlight > a::after {
+    background-color: #e06567;  
+    animation: slide 1s;
+}
 @keyframes slide {
     0% {
         width: 0%;
@@ -312,12 +316,18 @@ section.skills > ol > li > .progressBar {
     background-color: #FAE1E1;
     border-radius: 3px;
     margin: 4px 0 40px;
+    overflow: hidden;
 }   
 section.skills > ol > li > .progressBar > .progress {
     background-color: #E6686A;
     width: 50%;
     height: 100%;
     border-radius: 3px;
+    transform: translateX(-100%);
+    transition: all 0.5s;
+}
+section.skills.active > ol > li > .progressBar > .progress {
+    transform: translateX(0);
 }
 
 section.portfolio { 
@@ -388,4 +398,11 @@ section.portfolio .works .pic-3 {
     position: absolute;
     top: 312px;
     left: 645px;
+}
+[location] {
+    transform: translateY(80px);
+    transition: all 0.5s;
+}
+[location].active {
+    transform: translateY(0);
 }
