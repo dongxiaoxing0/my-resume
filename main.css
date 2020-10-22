@@ -343,7 +343,7 @@ section.portfolio .swiper-container {
 }
 section.portfolio .swiper-container .swiper-button-prev,
 section.portfolio .swiper-container .swiper-button-next{
-    color: white;
+    color: grey;
 }
 
 [location] {
