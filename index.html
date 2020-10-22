@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的个人简历</title>
-    <link rel="stylesheet" href="main.css">
-    <!-- <link rel="stylesheet" href="loading.css"> -->
+    <link rel="stylesheet" href="style.css">
     <script src="//at.alicdn.com/t/font_1233691_uxb0u0au1gj.js"></script>
     <style type="text/css">
         .icon {
@@ -21,9 +20,8 @@
 </head>
 
 <body>
-    <!-- <div id="siteWelcome" class="siteWelcome active">
-        <div class="loading"></div>
-    </div> -->
+    <div class="loading"></div>
+    </div>
     <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a class="logo" href="" alt="logo">
@@ -154,9 +152,9 @@
         <h2>作品集</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="./img/work1.jpg" alt="" ></div>
-                <div class="swiper-slide"><img src="./img/work2.jpg" alt="" ></div>
-                <div class="swiper-slide"><img src="./img/work3.jpg" alt="" ></div>
+                <div class="swiper-slide"><img src="./img/work1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/work2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/work3.jpg" alt=""></div>
             </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
@@ -164,90 +162,10 @@
     </section>
     <script src="https://cdn.bootcdn.net/ajax/libs/tween.js/0.11.0/Tween.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        setTimeout(function () {
-            siteWelcome.classList.remove('active');
-        }, 2000);
-
-        slideUp()
-
-        window.onscroll = function () {
-            if (window.scrollY == 0) {
-                topNavBar.classList.remove('sticky');
-            } else {
-                topNavBar.classList.add('sticky');
-            }
-            slideUp()
-        }
-        let li = document.querySelectorAll('.topNavBar nav > ul > li');
-        for (let i = 0; i < li.length - 1; i++) {
-            li[i].onmouseenter = function (e) {
-                e.currentTarget.classList.add('active')
-            }
-            li[i].onmouseleave = function (e) {
-                e.currentTarget.classList.remove('active')
-            }
-        }
-        let aTags = document.querySelectorAll('.topNavBar nav > ul > li > a');
-        for (let i = 0; i < aTags.length; i++) {
-            aTags[i].onclick = function (e) {
-                e.preventDefault();
-                let href = e.currentTarget.getAttribute('href');
-                let targetElement = document.querySelector(href);
-                let top = targetElement.offsetTop;
-                let currentTop = window.scrollY;
-                let s = Math.abs(currentTop - top);
-                let t = (s / 100) * 300;
-                if (t > 500) { t = 500 }
-                function animate(time) {
-                    requestAnimationFrame(animate)
-                    TWEEN.update(time)
-                }
-                requestAnimationFrame(animate)
-
-                const coords = { y: currentTop }
-                const tween = new TWEEN.Tween(coords)
-                    .to({ y: top - 70 }, 1000)
-                    .easing(TWEEN.Easing.Quadratic.InOut)
-                    .onUpdate(() => {
-                        window.scrollTo(0, coords.y)
-                    })
-                    .start()
-            }
-        }
-
-        function slideUp() {
-            let locationTags = document.querySelectorAll('[location]')
-            let minIndex = 0
-            for (let i = 1; i < locationTags.length; i++) {
-                if (Math.abs(locationTags[i].offsetTop - window.scrollY) < Math.abs(locationTags[minIndex].offsetTop - window.scrollY)) {
-                    minIndex = i
-                }
-            }
-            let id = locationTags[minIndex].id
-            let li = document.querySelector('[href="#' + id + '"]').parentNode
-            let liTags = li.parentNode.children
-            for (let i = 0; i < liTags.length; i++) {
-                liTags[i].classList.remove('highlight')
-            }
-            li.classList.add('highlight')
-            // for(let i = 0; i < locationTags.length; i++){
-            //     locationTags[i].classList.remove('active')
-            // }
-            locationTags[minIndex].classList.add('active')
-        }
-
-
-        var mySwiper = new Swiper('.swiper-container', {
-            direction: 'horizontal',
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        })
-    </script>
-
+    <script src="./smoothly-navgation.js"></script>
+    <script src="./sticky-nav-bar.js"></script>
+    <script src="./init-swiper.js"></script>
+    <script src="./slide-up.js"></script>
 </body>
 
 </html>
