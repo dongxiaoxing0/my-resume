@@ -17,6 +17,7 @@
             overflow: hidden;
         }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -151,41 +152,18 @@
     </section>
     <section location id="portfolio" class="portfolio">
         <h2>作品集</h2>
-        <nav>
-            <ol class="clearfix">
-                <li id="portfolioAll">所有</li>
-                <li id="portfolioFramework">框架</li>
-                <li id="portfolioVallina">原生JS&CSS</li>
-            </ol>
-            <div id="portfolioBar" class="bar  state-1">
-                <div class="bar-inner"></div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./img/work1.jpg" alt="" ></div>
+                <div class="swiper-slide"><img src="./img/work2.jpg" alt="" ></div>
+                <div class="swiper-slide"><img src="./img/work3.jpg" alt="" ></div>
             </div>
-        </nav>
-        <script>
-            portfolioAll.onclick = function () {
-                portfolioBar.className = 'bar state-1';
-            }
-            portfolioFramework.onclick = function () {
-                portfolioBar.className = 'bar state-2';
-            }
-            portfolioVallina.onclick = function () {
-                portfolioBar.className = 'bar state-3';
-            }
-        </script>
-
-        <div class="works">
-            <div class="pic-1">
-                <img src="./img/1.jpg" alt="">
-            </div>
-            <div class="pic-2">
-                <img src="./img/2.jpg" alt="">
-            </div>
-            <div class="pic-3">
-                <img src="./img/3.jpg" alt="">
-            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </section>
     <script src="https://cdn.bootcdn.net/ajax/libs/tween.js/0.11.0/Tween.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         setTimeout(function () {
             siteWelcome.classList.remove('active');
@@ -258,6 +236,16 @@
             // }
             locationTags[minIndex].classList.add('active')
         }
+
+
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })
     </script>
 
 </body>

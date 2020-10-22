@@ -334,73 +334,20 @@ section.portfolio {
     text-align: center;
     margin-bottom: 100px;
 }
-section.portfolio > nav {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 32px;
+section.portfolio > h2 {
+    margin-bottom: 30px;
 }
-section.portfolio > nav > ol {
-    display: inline-block;
-    vertical-align: top;
-    cursor: pointer;
+section.portfolio .swiper-container {
+    width: 940px;
+    height: 470px;
 }
-section.portfolio >nav > ol > li {
-    float: left;
-    margin-left: 40px;
+section.portfolio .swiper-container .swiper-button-prev,
+section.portfolio .swiper-container .swiper-button-next{
+    color: white;
 }
-section.portfolio >nav > ol > li:first-child {
-    margin-left: 0;
-}
-section.portfolio .bar {
-    height: 5px;
-    background-color: white;
-    border-radius: 3px;
-    margin: 5px 0 28px;
-}
-section.portfolio .bar.state-1 .bar-inner {
-    background-color: #E6686A;
-    width: 13%;
-    height: 5px;
-    border-radius: 3px;
-    transition: all 1s;
-}
-section.portfolio .bar.state-2 .bar-inner {
-    background-color: #E6686A;
-    width: 14%;
-    height: 5px;
-    border-radius: 3px;
-    margin-left: 72px;
-    transition: all 1s;
-}
-section.portfolio .bar.state-3 .bar-inner {
-    background-color: #E6686A;
-    width: 38%;
-    height: 5px;
-    border-radius: 3px;
-    margin-left: 145px;
-    transition: all 1s;
-}
-section.portfolio .works {
-    position: relative;
-    height: 597px;
-}
-section.portfolio .works .pic-1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-section.portfolio .works .pic-2 {
-    position: absolute;
-    top: 0;
-    left: 645px;
-}
-section.portfolio .works .pic-3 {
-    position: absolute;
-    top: 312px;
-    left: 645px;
-}
+
 [location] {
-    transform: translateY(80px);
+    transform: translateY(200px);
     transition: all 0.5s;
 }
 [location].active {
