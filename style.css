@@ -265,6 +265,7 @@ main .selfIntroduction {
 }
 
 section.skills,
+section.messages,
 section.portfolio{
     max-width: 940px;
     margin-left: auto;
@@ -272,6 +273,7 @@ section.portfolio{
     margin-top: 60px;    
 }
 section.skills > h2,
+section.messages > h2,
 section.portfolio > h2 {
     text-align: center;
     color: #3d4451;
@@ -339,4 +341,32 @@ section.portfolio .swiper-container .swiper-button-next{
 }
 [location].active {
     transform: translateY(0);
+}
+section.messages{
+    margin-bottom: 100px;
+}
+section.messages ol.messageBoard {
+    margin-top: 30px;
+    /* border-top: 1px solid #efefef; */
+    border-radius: 20px;
+    background-color: #fff;
+    /* box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5); */
+    overflow: hidden;
+}
+
+section.messages ol.messageBoard > li {
+    border-top: 1px solid #ccc;
+    padding: 10px 10px 10px 40px;
+    font-size: 18px;
+    background-color: #fff;
+}
+section.messages ol.messageBoard > li:nth-child(1) {
+    border-top: 0;
+}
+section.messages ol.messageBoard > li > span {
+    display: block;
+    padding: 2px 0;
+}
+section.messages form {
+    margin-bottom: 100px;
 }
