@@ -368,5 +368,6 @@ section.messages ol.messageBoard > li > span {
     padding: 2px 0;
 }
 section.messages form {
-    margin-bottom: 100px;
+    margin-top: 10px;
+    margin-left: 40px;
 }
