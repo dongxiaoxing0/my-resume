@@ -1,7 +1,7 @@
 !function () {
     var view = new View('.swiper-container')
-    var controller = {
-        view: null,
+    var controller = new Controller({
+        init: null,
         swiper: null,
         options: {
             direction: 'horizontal',
@@ -11,13 +11,12 @@
                 prevEl: '.swiper-button-prev',
             }
         },
-        init: function (view) {
-            this.view = view
+        init: function () {
             this.initSwiper()
         },
         initSwiper: function () {
             this.swiper = new Swiper(this.view.el, this.options)
         }
-    }
-    controller.init(view)
+    })
+    controller.init(view,null)
 }()

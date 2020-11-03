@@ -1,16 +1,10 @@
 !function () {
     var model = new Model('Messages')
     var view = new View('.messages')
-    var controller = {
-        model: null,
-        view: null,
-        init: function (view, model) {
-            this.model = model
-            this.view = view
-            this.model.init()
-            this.loadMessages()
+    var controller = new Controller({
+        init: function () {
             this.bindEvents()
-            
+            this.loadMessages()
         },
         bindEvents: function () {
             let messagesForm = this.view.el.querySelector('form[name = messages]')
@@ -19,7 +13,7 @@
                 this.saveMessages()
             })
         },
-        loadMessages:function(){
+        loadMessages: function () {
             this.model.fetch().then((messages) => {
                 let array = messages.map(function (x) {
                     return {
@@ -40,8 +34,8 @@
                 })
             })
         },
-        saveMessages:function(){
-            this.model.save({userName:userName.value, message:messageContent.value}).then((message) => {
+        saveMessages: function () {
+            this.model.save({ userName: userName.value, message: messageContent.value }).then((message) => {
                 let li = document.createElement('li')
                 let span1 = document.createElement('span')
                 let span2 = document.createElement('span')
@@ -55,7 +49,7 @@
                 messageContent.value = ''
             })
         }
-    }
+    })
     controller.init(view, model)
 
 }.call()

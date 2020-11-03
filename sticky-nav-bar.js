@@ -1,9 +1,7 @@
 !function () {
     var view = new View('.topNavBar')
-    var controller = {
-        view: null,
-        init: function (view) {
-            this.view = view;
+    var controller = new Controller({
+        init: function () {
             this.bindEvents()
             if (window.scrollY != 0) {
                     this.active()
@@ -24,6 +22,6 @@
         deactive: function () {
             this.view.el.classList.remove('sticky')
         }
-    }
-    controller.init(view)
-}()
+    })
+    controller.init(view,null)
+}.call()
