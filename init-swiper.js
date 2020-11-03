@@ -1,5 +1,5 @@
 !function () {
-    var view = View('.swiper-container')
+    var view = new View('.swiper-container')
     var controller = {
         view: null,
         swiper: null,
@@ -16,7 +16,7 @@
             this.initSwiper()
         },
         initSwiper: function () {
-            this.swiper = new Swiper(this.view, this.options)
+            this.swiper = new Swiper(this.view.el, this.options)
         }
     }
     controller.init(view)

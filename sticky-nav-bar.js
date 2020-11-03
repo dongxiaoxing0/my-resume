@@ -1,5 +1,5 @@
 !function () {
-    var view = View('.topNavBar')
+    var view = new View('.topNavBar')
     var controller = {
         view: null,
         init: function (view) {
@@ -19,10 +19,10 @@
             })
         },
         active: function () {
-            this.view.classList.add('sticky')
+            this.view.el.classList.add('sticky')
         },
         deactive: function () {
-            this.view.classList.remove('sticky')
+            this.view.el.classList.remove('sticky')
         }
     }
     controller.init(view)

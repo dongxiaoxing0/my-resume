@@ -1,5 +1,6 @@
 !function(){
-    window.View = function (querySelector) {
-        return document.querySelector(querySelector)
+    window.View = function (querySelector) {    
+        this.el =  document.querySelector(querySelector)
+        return this
     }
 }.call()
